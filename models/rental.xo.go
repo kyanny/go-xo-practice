@@ -6,6 +6,7 @@ package models
 import (
 	"errors"
 	"time"
+	"github.com/lib/pq"
 )
 
 // Rental represents a row from 'public.rental'.

@@ -14,7 +14,7 @@ type Film struct {
 	FilmID          int              `json:"film_id"`          // film_id
 	Title           string           `json:"title"`            // title
 	Description     sql.NullString   `json:"description"`      // description
-	ReleaseYear     Year             `json:"release_year"`     // release_year
+	ReleaseYear     string             `json:"release_year"`     // release_year
 	LanguageID      int16            `json:"language_id"`      // language_id
 	RentalDuration  int16            `json:"rental_duration"`  // rental_duration
 	RentalRate      float64          `json:"rental_rate"`      // rental_rate
@@ -23,7 +23,7 @@ type Film struct {
 	Rating          MpaaRating       `json:"rating"`           // rating
 	LastUpdate      time.Time        `json:"last_update"`      // last_update
 	SpecialFeatures []sql.NullString `json:"special_features"` // special_features
-	Fulltext        Tsvector         `json:"fulltext"`         // fulltext
+	Fulltext        string         `json:"fulltext"`         // fulltext
 
 	// xo fields
 	_exists, _deleted bool
@@ -179,7 +179,7 @@ func (f *Film) Language(db XODB) (*Language, error) {
 // FilmsByFulltext retrieves a row from 'public.film' as a Film.
 //
 // Generated from index 'film_fulltext_idx'.
-func FilmsByFulltext(db XODB, fulltext Tsvector) ([]*Film, error) {
+func FilmsByFulltext(db XODB, fulltext string) ([]*Film, error) {
 	var err error
 
 	// sql query

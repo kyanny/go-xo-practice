@@ -7,6 +7,7 @@ import (
 	"database/sql"
 	"errors"
 	"time"
+	"github.com/lib/pq"
 )
 
 // Customer represents a row from 'public.customer'.
