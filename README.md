@@ -16,3 +16,9 @@ $ docker-compose up -d
 $ mkdir models
 $ xo "pgsql://postgres:@localhost/dvdrental?sslmode=disable" -o models
 ```
+
+## Run `main.go`
+
+```
+$ go run ./main.go
+```
